@@ -6,13 +6,13 @@ import java.sql.SQLException;
 
 public class DBConfig {
     public static Connection dbConnection() {
-        Connection con = null;
         try {
-            Class.forName("mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:/mysql:/localhost:3306/student_mgmt", "root", "root");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_mgmt", "root", "root");
+            return con;
         }catch(Exception e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
-        return con;
+        return null;
     }
 }
